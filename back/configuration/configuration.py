@@ -6,7 +6,7 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s', level=log
 
 class Configuration(object):
     def __init__(self):
-        self.configuration_file = "/home/toto/Téléchargements/video-conversion/application.yml"
+        self.configuration_file = "/home/toto/Téléchargements/video-conversion/back/application.yml"
         self.configuration_data = None
 
         f = open(self.configuration_file, 'r')
