@@ -9,8 +9,7 @@ server :
 spring :
   data :
     mongodb :
-      host : 172.31.249.153
-      port : 27017
+      uri: mongodb+srv://ejmn-converter:Ejmn2019@clustermongodb-driver-xusit.azure.mongodb.net/ezipflix?retryWrites=true&w=majority
       database : ezipflix
 
 conversion:
