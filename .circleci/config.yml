@@ -7,8 +7,9 @@ jobs:
     docker:
       - image: circleci/openjdk:11-jdk
 
-    working_directory: front/
+    working_directory: ~/repo/front
 
-    steps:
-      - checkout
+     steps:
+      - checkout:
+            path: ~/repo
       - run: mvn package -B
