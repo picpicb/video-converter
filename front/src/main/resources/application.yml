@@ -11,20 +11,11 @@ spring :
     mongodb :
       uri: mongodb+srv://ejmn-converter:Ejmn2019@clustermongodb-driver-xusit.azure.mongodb.net/ezipflix?retryWrites=true&w=majority
       database : ezipflix
+  cloud :
+    gcp:
+      project-id: videoconverter-259113
+      credentials:
+        location : file:video-key.json
 
-conversion:
-  messaging :
-    rabbitmq :
-      conversion-exchange: video-conversion-exchange
-      conversion-queue: video-conversion-queue
-
-rabbitmq-server:
-  server: 172.31.249.234
-  port: 5672
-  credentials:
-    vhost: ezip         # sudo rabbitmqctl add_vhost ezip
-                        # sudo rabbitmqctl set_permissions -p ezip ezip ".*" ".*" ".*"
-    username: rabbitmq      # sudo rabbitmqctl add_user ezip pize
-    password: rabbitmq
 
 
