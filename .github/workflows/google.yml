@@ -13,7 +13,7 @@ name: Build and Deploy to GKE
 on:
   push:
     branches:
-    - master
+    - jm-test-actions
 
 # Environment variables available to all jobs and steps in this workflow
 env:
@@ -31,10 +31,13 @@ jobs:
     steps:
       
     # Build the Docker image
-    - name: Build
+    - name: Build Artifact
       working-directory: ~/repo/front
       run:
         mvn package -B      
-        docker build -t gcr.io/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA" --build-arg GITHUB_SHA="$GITHUB_SHA" --build-arg GITHUB_REF="$GITHUB_REF" .
 
-    
+    - name: Build Docker
+      working-directory: ~/repo/front
+      run:
+        docker build -t gcr.io/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA" --build-arg GITHUB_SHA="$GITHUB_SHA" --build-arg GITHUB_REF="$GITHUB_REF" .
+   
