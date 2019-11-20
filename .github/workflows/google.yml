@@ -26,6 +26,7 @@ jobs:
         java-version: openjdk@1.11
     
     - name: PubSub Key
+      working-directory: ./front
       run:
         echo "$VIDEO_JSON" > "video-key.json" 
     - name: Show files
