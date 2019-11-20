@@ -1,7 +1,8 @@
-FROM openjdk:8-jdk-alpine
+FROM azul/zulu-openjdk-alpine:11
 VOLUME /tmp
 WORKDIR /source
 COPY keystore.pkcs12 /source/keystore.pkcs12
+COPY video-key.json /source/video-key.json
 RUN chmod 777 -R /source
 ARG JAR_FILE=target/video-dispatcher-1.0-SNAPSHOT.jar
 ADD ${JAR_FILE} video-dispatcher.jar
