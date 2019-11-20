@@ -40,9 +40,9 @@ jobs:
       run:
         mvn package -B --file pom.xml      
   
-    - name: Push Docker GCR
-      uses: RaccoonDev/push-docker-gcr@v1
-      with:
-        image_name: video-front
-        image_tag: latest
+    - name: Docker Build
+      working-directory: ./front
+      run:
+        docker build -t gcr.io/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA" --build-arg GITHUB_SHA="$GITHUB_SHA" --build-arg GITHUB_REF="$GITHUB_REF" .
+
 
