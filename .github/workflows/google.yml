@@ -9,6 +9,7 @@ env:
   GKE_PROJECT: ${{ secrets.GKE_PROJECT }}
   GKE_EMAIL: ${{ secrets.GKE_EMAIL }}
   GITHUB_SHA: ${{ github.sha }}
+  VIDEO_JSON: ${{ secrets.VIDEO_JSON }}
   GKE_ZONE: europe-west1-c
   GKE_CLUSTER: first-cluster
   IMAGE: videofront
@@ -24,6 +25,13 @@ jobs:
       with:
         java-version: openjdk@1.11
     
+    - name: PubSub Key
+      run:
+        echo "$VIDEO_JSON" > "video-key.json" 
+    - name: Show files
+      run:
+        ls -la
+        
     - name: Maven Build
       working-directory: ./front
       run:
