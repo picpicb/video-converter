@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM azul/zulu-openjdk-alpine:11
 VOLUME /tmp
 WORKDIR /source
 COPY keystore.pkcs12 /source/keystore.pkcs12
