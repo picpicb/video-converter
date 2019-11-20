@@ -39,11 +39,10 @@ jobs:
       working-directory: ./front
       run:
         mvn package -B --file pom.xml      
-
-    - name: Docker Build
-      uses: raccoondev/push-docker-gcr
+  
+    - name: Push Docker GCR
+      uses: RaccoonDev/push-docker-gcr@v1
       with:
-        gcr_host: eu.gcr.io
-        image_name: my_image
+        image_name: video-front
         image_tag: latest
 
