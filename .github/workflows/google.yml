@@ -29,15 +29,15 @@ jobs:
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
     steps:
-      
-    # Build the Docker image
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: adopt@1.11
     - name: Build Artifact
-      working-directory: ~/repo/front
       run:
-        mvn package -B      
+        mvn package -B --file pom.xml      
 
     - name: Build Docker
-      working-directory: ~/repo/front
       run:
         docker build -t gcr.io/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA" --build-arg GITHUB_SHA="$GITHUB_SHA" --build-arg GITHUB_REF="$GITHUB_REF" .
    
