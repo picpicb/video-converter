@@ -41,7 +41,9 @@ jobs:
         mvn package -B --file pom.xml      
 
     - name: Docker Build
-      working-directory: ./front
-      run:
-        docker build -t gcr.io/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA" --build-arg GITHUB_SHA="$GITHUB_SHA" --build-arg GITHUB_REF="$GITHUB_REF" .
-   
+      uses: raccoondev/push-docker-gcr
+      with:
+        gcr_host: eu.gcr.io
+        image_name: my_image
+        image_tag: latest
+
