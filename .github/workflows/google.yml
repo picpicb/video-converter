@@ -29,21 +29,19 @@ jobs:
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v1
     - name: Set up JDK 11
       uses: olafurpg/setup-scala@v5
       with:
         java-version: openjdk@1.11
-      
-    - uses: actions/checkout@v1
-    - name: Build site assets
-      working-directory: ${{ github.workspace }}
-      run: ls -la
     
-    - name: Build Artifact
+    - name: Maven Build
+      working-directory: ./front
       run:
         mvn package -B --file pom.xml      
 
-    - name: Build Docker
+    - name: Docker Build
+      working-directory: ./front
       run:
         docker build -t gcr.io/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA" --build-arg GITHUB_SHA="$GITHUB_SHA" --build-arg GITHUB_REF="$GITHUB_REF" .
    
