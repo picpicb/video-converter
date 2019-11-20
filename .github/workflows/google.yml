@@ -33,9 +33,11 @@ jobs:
       uses: olafurpg/setup-scala@v5
       with:
         java-version: openjdk@1.11
-    - name: Show current directory
-      run:
-        ls -la
+      
+    - uses: actions/checkout@v1
+    - name: Build site assets
+      working-directory: ${{ github.workspace }}
+      run: ls -la
     
     - name: Build Artifact
       run:
