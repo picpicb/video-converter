@@ -34,12 +34,12 @@ jobs:
       with:
         java-version: openjdk@1.11
     - name: Build Artifact
-      working-directory: front/
+      working-directory: ./front
       run:
         mvn package -B --file pom.xml      
 
     - name: Build Docker
-      working-directory: front/
+      working-directory: ./front
       run:
         docker build -t gcr.io/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA" --build-arg GITHUB_SHA="$GITHUB_SHA" --build-arg GITHUB_REF="$GITHUB_REF" .
    
