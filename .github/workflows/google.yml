@@ -1,0 +1,40 @@
+# This workflow will build a docker container, publish it to Google Container Registry, and deploy it to GKE.
+#
+# To configure this workflow:
+#
+# 1. Ensure that your repository contains the necessary configuration for your Google Kubernetes Engine cluster, including deployment.yml, kustomization.yml, service.yml, etc.
+#
+# 2. Set up secrets in your workspace: GKE_PROJECT with the name of the project, GKE_EMAIL with the service account email, GKE_KEY with the service account key.
+#
+# 3. Change the values for the GKE_ZONE, GKE_CLUSTER and IMAGE environment variables (below).
+
+name: Build and Deploy to GKE
+
+on:
+  push:
+    branches:
+    - master
+
+# Environment variables available to all jobs and steps in this workflow
+env:
+  GKE_PROJECT: ${{ secrets.GKE_PROJECT }}
+  GKE_EMAIL: ${{ secrets.GKE_EMAIL }}
+  GITHUB_SHA: ${{ github.sha }}
+  GKE_ZONE: us-west1-a
+  GKE_CLUSTER: example-gke-cluster
+  IMAGE: gke-test
+
+jobs:
+  build:
+    name: Setup, Build, Publish, and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      
+    # Build the Docker image
+    - name: Build
+      working-directory: ~/repo/front
+      run:
+        mvn package -B      
+        docker build -t gcr.io/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA" --build-arg GITHUB_SHA="$GITHUB_SHA" --build-arg GITHUB_REF="$GITHUB_REF" .
+
+    
