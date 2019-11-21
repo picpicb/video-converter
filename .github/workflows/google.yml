@@ -28,10 +28,11 @@ jobs:
     
     - name: PubSub Key
       working-directory: ./front
-      run:
+      run: |
         echo "$VIDEO_JSON" > "video-key.json" 
         echo "$STORAGE_JSON" > "storage-key.json" 
     - name: Show files
+      working-directory: ./front
       run:
         ls -la
         
