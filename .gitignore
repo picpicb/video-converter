@@ -30,3 +30,4 @@ build/
 ### VS Code ###
 .vscode/
 storage-key.json
+video-key.json
