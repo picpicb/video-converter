@@ -3,6 +3,8 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
+back/env/
+back/venv/
 
 ### STS ###
 .apt_generated
@@ -29,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+storage-key.json
+video-key.json

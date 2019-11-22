@@ -2,11 +2,10 @@
 
 import logging
 
-from configuration.configuration import Configuration
-from messaging.videoconversionmessaging import VideoConversionMessaging
-from database.mongodb.videoconversion import VideoConversion
-from videoconvunixsocket.videoconversionunixsocket import VideoConversionUnixSocket
-
+from configuration import Configuration
+from videoconversion import VideoConversion
+from videoconversionmessaging import VideoConversionMessaging
+from videoconversionunixsocket import VideoConversionUnixSocket
 
 if __name__ == '__main__':
 
