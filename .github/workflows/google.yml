@@ -10,7 +10,6 @@ env:
   GKE_EMAIL: ${{ secrets.GKE_EMAIL }}
   GITHUB_SHA: ${{ github.sha }}
   VIDEO_JSON: ${{ secrets.VIDEO_JSON }}
-  STORAGE_JSON: ${{ secrets.STORAGE_JSON }}
   GKE_ZONE: europe-west1-c
   GKE_CLUSTER: first-cluster
   IMAGE: videofront
@@ -30,7 +29,6 @@ jobs:
       working-directory: ./front
       run: |
         echo "$VIDEO_JSON" > "video-key.json"
-        echo "$STORAGE_JSON" > "storage-key.json"
     - name: Show files
       working-directory: ./front
       run:
