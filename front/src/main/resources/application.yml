@@ -11,11 +11,7 @@ spring :
     mongodb :
       uri: mongodb+srv://ejmn-converter:Ejmn2019@clustermongodb-driver-xusit.azure.mongodb.net/ezipflix?retryWrites=true&w=majority
       database : ezipflix
-  cloud :
-    gcp:
-      project-id: eco-groove-259413
-      credentials:
-        location : file:video-key.json
+
 
 
 
