@@ -3,7 +3,7 @@ import pika
 from threading import Thread
 import logging
 import json
-import queue
+from gevent import queue
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s', level=logging.DEBUG)
 logging.getLogger("pika").setLevel(logging.INFO)

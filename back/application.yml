@@ -1,8 +1,7 @@
 spring :
   data :
     mongodb :
-      host : 172.31.249.153
-      port : 27017
+      host : mongodb://ejmn-converter:Ejmn2019@clustermongodb-driver-shard-00-00-xusit.azure.mongodb.net:27017,clustermongodb-driver-shard-00-01-xusit.azure.mongodb.net:27017,clustermongodb-driver-shard-00-02-xusit.azure.mongodb.net:27017/test?ssl=true&replicaSet=ClusterMongoDB-Driver-shard-0&authSource=admin&retryWrites=true&w=majority
       database : ezipflix
       collections :
         video-conversions : video_conversions
@@ -10,7 +9,6 @@ conversion:
   messaging :
     video-status:
       url: wss://172.31.249.178:42308/video_status
-#      url: ws://darkops:42308/video_status
     rabbitmq :
       conversion-exchange: video-conversion-exchange
       conversion-queue: video-conversion-queue
