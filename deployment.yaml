@@ -17,9 +17,6 @@ spec:
       containers:
       - name: video-front
         image: gcr.io/eco-groove-259413/videofront:f1ef470f319092d2297b01fc9dfa288de89ad256
-        env:
-    	  - name: GOOGLE_APPLICATION_CREDENTIALS
-      	  value: video-key.json
         ports:
         - containerPort: 42308
           protocol: TCP
