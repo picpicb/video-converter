@@ -13,9 +13,6 @@ spring :
       database : ezipflix
   cloud :
     gcp:
-      project-id: videoconverter-259113
+      project-id: eco-groove-259413
       credentials:
         location : file:video-key.json
-
-
-
