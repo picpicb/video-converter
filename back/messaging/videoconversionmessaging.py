@@ -88,3 +88,4 @@ class VideoConversionMessaging(Thread):
 
     def is_consuming(self):
         return self.consuming
+

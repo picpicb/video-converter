@@ -8,7 +8,7 @@ spring :
 conversion:
   messaging :
     video-status:
-      url: wss://172.31.249.178:42308/video_status
+      url: wss://35.189.202.227:42308/video_status
     pubsub :
-      project-id: videoconverter-259113
+      project-id: eco-groove-259413
       subscription-name: back-converter
