@@ -28,7 +28,7 @@ jobs:
     - name: PubSub Key
       working-directory: ./front
       run: |
-        echo "$VIDEO_JSON" > "video-key.json" 
+        echo "$VIDEO_JSON" > "video-key.json"
     - name: Show files
       working-directory: ./front
       run:

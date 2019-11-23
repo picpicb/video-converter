@@ -5,6 +5,7 @@ target/
 !**/src/test/**
 back/env/
 back/venv/
+
 ### STS ###
 .apt_generated
 .classpath
