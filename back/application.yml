@@ -8,15 +8,7 @@ spring :
 conversion:
   messaging :
     video-status:
-      url: wss://172.31.249.178:42308/video_status
-    rabbitmq :
-      conversion-exchange: video-conversion-exchange
-      conversion-queue: video-conversion-queue
-
-rabbitmq-server:
-  server: 172.31.249.234
-  port: 5672
-  credentials:
-    vhost: ezip         # sudo rabbitmqctl add_vhost ezip           # sudo rabbitmqctl set_permissions -p ezip ezip ".*" ".*" ".*"
-    username: rabbitmq  # sudo rabbitmqctl add_user ezip pize
-    password: rabbitmq
+      url: wss://35.189.202.227:42308/video_status
+    pubsub :
+      project-id: eco-groove-259413
+      subscription-name: back-converter
