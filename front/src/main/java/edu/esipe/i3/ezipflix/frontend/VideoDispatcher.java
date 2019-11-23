@@ -40,7 +40,7 @@ public class VideoDispatcher implements WebSocketConfigurer {
     }
 
     public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry) {
-        webSocketHandlerRegistry.addHandler(videoStatusHandler(), "/video_status").setAllowedOrigins("*");
+        webSocketHandlerRegistry.addHandler(videoStatusHandler(), "/video_status");
     }
 
     // ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
