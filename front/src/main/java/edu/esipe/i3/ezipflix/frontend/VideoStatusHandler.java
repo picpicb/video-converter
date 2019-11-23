@@ -9,12 +9,14 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 /**
  * Created by Gilles GIRAUD gil on 1/22/18.
  */
+
 public class VideoStatusHandler extends TextWebSocketHandler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(VideoStatusHandler.class);
 
     public VideoStatusHandler() {
     }
+
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
