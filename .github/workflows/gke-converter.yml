@@ -2,7 +2,7 @@ name: GKE Deploy Converter
 on:
   push:
     branches:
-    - converter-deploy
+    - master
 
 # Environment variables available to all jobs and steps in this workflow
 env:
