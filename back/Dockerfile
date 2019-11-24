@@ -1,9 +1,11 @@
-FROM python:3.5-alpine
-COPY ca.cert.pem ./
-COPY application.yml ./
-COPY ./requirements.txt ./
+FROM python:2.7-alpine
+ADD . /source
+WORKDIR /source
+RUN ls -la
 RUN apk add --no-cache build-base \
     ffmpeg
 RUN pip install -r requirements.txt
-ADD . .
-CMD ["python","video-conversion-worker.py"]
+RUN ls -la
+ENV GOOGLE_APPLICATION_CREDENTIALS=video-key.json
+CMD ["python","-m","video-conversion-worker.py"]
+

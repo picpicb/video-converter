@@ -1,11 +1,9 @@
-#!/usr/bin/python3.5
-
 import logging
 
-from configuration import Configuration
-from pubsubmessaging import PubSubMessaging
-from videoconversion import VideoConversion
-from videoconversionunixsocket import VideoConversionUnixSocket
+from converterconf.configuration import Configuration
+from videoconvunixsocket.videoconversionunixsocket import VideoConversionUnixSocket
+from database.videoconversion import VideoConversion
+from messaging.pubsubmessaging import PubSubMessaging
 
 if __name__ == '__main__':
 

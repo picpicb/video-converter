@@ -1,4 +1,4 @@
-setuptools==41.6.0
+setuptools==42.0.0
 six==1.13.0
 PyYAML==5.1.2
 ffmpy==0.2.2
@@ -7,3 +7,6 @@ pymongo==3.9.0
 websocket-client==0.56.0
 gevent==1.4.0
 greenlet==0.4.15
+google-cloud-storage==1.23.0
+google-api-core==1.14.3
+google-cloud-pubsub==1.0.2
