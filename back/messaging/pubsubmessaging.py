@@ -2,7 +2,6 @@ import time
 import json
 import logging
 from threading import Thread
-
 from google.api_core.exceptions import DeadlineExceeded
 from google.cloud import pubsub_v1
 

@@ -7,5 +7,5 @@ RUN apk add --no-cache build-base \
 RUN pip install -r requirements.txt
 RUN ls -la
 ENV GOOGLE_APPLICATION_CREDENTIALS=video-key.json
-CMD ["python","-m","video-conversion-worker.py"]
+CMD ["python","-m","video-conversion-worker"]
 

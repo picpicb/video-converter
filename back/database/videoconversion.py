@@ -1,6 +1,5 @@
 # coding=utf-8
 import logging
-
 import ffmpy
 from google.cloud import storage
 from pymongo import MongoClient
