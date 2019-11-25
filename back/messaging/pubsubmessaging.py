@@ -22,11 +22,11 @@ class PubSubMessaging(Thread):
         while True:
             try:
                 self.response = self.subscriber.pull(self.subscription_path, max_messages=1)
+                ack_ids = [msg.ack_id for msg in self.response.received_messages]
+                self.subscriber.acknowledge(self.subscription_path, ack_ids)
                 for msg in self.response.received_messages:
                     task = json.loads(msg.message.data)
                     self.on_message(task)
-                ack_ids = [msg.ack_id for msg in self.response.received_messages]
-                self.subscriber.acknowledge(self.subscription_path, ack_ids)
             except DeadlineExceeded :
                 print("No incoming task")
             time.sleep(5)
