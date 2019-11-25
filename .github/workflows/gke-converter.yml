@@ -1,6 +1,8 @@
 name: GKE Deploy Converter
 on:
   push:
+    paths: 
+    - 'back/**'
     branches:
     - master
 
