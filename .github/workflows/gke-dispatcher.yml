@@ -1,6 +1,8 @@
 name: GCP Deploy Dispatcher
 on:
   push:
+    paths: 
+    - 'front/**'
     branches:
     - master
 
