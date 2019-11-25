@@ -1,6 +1,7 @@
 package edu.esipe.i3.ezipflix.dispatcher;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.google.cloud.storage.BlobId;
 import edu.esipe.i3.ezipflix.dispatcher.data.entities.VideoConversions;
 import edu.esipe.i3.ezipflix.dispatcher.data.entities.VideoFile;
 import edu.esipe.i3.ezipflix.dispatcher.data.services.VideoConversion;
@@ -73,6 +74,12 @@ public class VideoDispatcher implements WebSocketConfigurer {
         return videoConversion.getAllVideoConversions();
     }
 
+    @RequestMapping(value = "/files/{id}", method = RequestMethod.DELETE)
+    @ApiOperation(value = "Delete a file by ID")
+    @ResponseBody
+    public void deleteCityById(@RequestBody VideoFile file) {
+        this.videoConversion.deleteBlobId(file);
+    }
 
 
 }

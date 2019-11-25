@@ -1,26 +1,26 @@
 package edu.esipe.i3.ezipflix.dispatcher.data.entities;
 
 public class VideoFile {
-    private String id;
+    private String bucket;
     private String uri;
     private String name;
     private String size;
     private String contentType;
 
-    public VideoFile(String id, String uri, String name, String size, String contentType) {
-        this.id = id;
+    public VideoFile(String bucket, String uri, String name, String size, String contentType) {
+        this.bucket = bucket;
         this.uri = uri;
         this.name = name;
         this.size = size;
         this.contentType = contentType;
     }
 
-    public String getId() {
-        return id;
+    public String getBucket() {
+        return bucket;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setBucket(String bucket) {
+        this.bucket = bucket;
     }
 
     public String getName() {
