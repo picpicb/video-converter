@@ -21,6 +21,7 @@ import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,7 +44,7 @@ public class VideoDispatcher implements WebSocketConfigurer {
 
     @Bean
     public WebSocketHandler videoStatusHandler() {
-        return new VideoStatusHandler();
+        return new VideoStatusHandler(videoConversion);
     }
 
     public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry) {
@@ -74,12 +75,16 @@ public class VideoDispatcher implements WebSocketConfigurer {
         return videoConversion.getAllVideoConversions();
     }
 
-    @RequestMapping(value = "/files/{id}", method = RequestMethod.DELETE)
-    @ApiOperation(value = "Delete a file by ID")
+    @RequestMapping(value = "/files/{file}", method = RequestMethod.DELETE)
+    @ApiOperation(value = "Delete a file")
     @ResponseBody
     public void deleteCityById(@RequestBody VideoFile file) {
         this.videoConversion.deleteBlobId(file);
     }
 
-
+    @GetMapping(value = "/running",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Get all conversions")
+    public ArrayList<VideoConversions> getRunningConversions() {
+        return videoConversion.getRunningConversions();
+    }
 }

@@ -16,15 +16,17 @@ public class VideoConversions {
     private String uuid;
     private String originPath;
     private String format;
+    private int progression;
 
 
     public VideoConversions() {
     }
 
-    public VideoConversions(String uuid, String originPath, String format) {
+    public VideoConversions(String uuid, String originPath, String format, int progression) {
         this.uuid = uuid;
         this.originPath = originPath;
         this.format = format;
+        this.progression = progression;
     }
 
     public String getUuid() {
@@ -49,6 +51,14 @@ public class VideoConversions {
 
     public void setFormat(String format) {
         this.format = format;
+    }
+
+    public int getProgression() {
+        return progression;
+    }
+
+    public void setProgression(int progression) {
+        this.progression = progression;
     }
 
     public String toJson() throws JsonProcessingException {

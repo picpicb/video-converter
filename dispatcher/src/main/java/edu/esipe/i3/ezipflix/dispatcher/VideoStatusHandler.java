@@ -1,5 +1,6 @@
 package edu.esipe.i3.ezipflix.dispatcher;
 
+import edu.esipe.i3.ezipflix.dispatcher.data.services.VideoConversion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.socket.TextMessage;
@@ -13,8 +14,9 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 public class VideoStatusHandler extends TextWebSocketHandler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(VideoStatusHandler.class);
-
-    public VideoStatusHandler() {
+    private VideoConversion videoConversion;
+    public VideoStatusHandler(VideoConversion videoConversion) {
+        this.videoConversion = videoConversion;
     }
 
 
@@ -26,5 +28,10 @@ public class VideoStatusHandler extends TextWebSocketHandler {
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         LOGGER.info("Status = {}", message.getPayload());
+        // pour le uuid récupéré :  mettre à jour la progression de VideoConversion assosié
+        /*
+        Json à recevoir
+        {"uuid": "dsflkjsdf", "progression": 23}
+         */
     }
 }

@@ -27,23 +27,24 @@ public class VideoConversion {
     @Autowired PubSubTemplate pubSubTemplate;
     private Storage storage;
     private Bucket bucket;
+    private ArrayList<VideoConversions> conversions;
 
     public VideoConversion() throws IOException {
         this.storage = StorageOptions.getDefaultInstance().getService();
         this.bucket = storage.get("eco-groove-259413.appspot.com");
+        conversions = new ArrayList<>();
     }
 
     public void save(
                 final ConversionRequest request,
                 final ConversionResponse response) throws JsonProcessingException {
 
-        final VideoConversions conversion = new VideoConversions(response.getUuid().toString(), request.getPath().toString(), request.getFormat());
-
+        final VideoConversions conversion = new VideoConversions(response.getUuid().toString(), request.getPath().toString(), request.getFormat(),0);
+        conversions.add(conversion);
         videoConversionRepository.save(conversion);
         final Message message = new Message(conversion.toJson().getBytes(), new MessageProperties());
         this.pubSubTemplate.publish("conversion-queue", conversion.toJson());
     }
-
 
     public List<VideoFile> getAllFiles() {
         List<VideoFile> files = new ArrayList<>();
@@ -61,4 +62,9 @@ public class VideoConversion {
         BlobId blobId = BlobId.of(file.getBucket(),file.getName());
         boolean deleted = storage.delete(blobId);
     }
+
+    public ArrayList<VideoConversions> getRunningConversions(){
+        return conversions;
+    }
+
 }
