@@ -4,6 +4,9 @@ public class ConversionStatus {
     private int progress;
     private String id;
 
+    public ConversionStatus() {
+    }
+
     public ConversionStatus(int progress, String id) {
         this.progress = progress;
         this.id = id;
