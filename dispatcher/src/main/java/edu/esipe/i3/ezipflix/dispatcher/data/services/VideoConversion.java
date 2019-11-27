@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.cloud.storage.*;
 import edu.esipe.i3.ezipflix.dispatcher.ConversionRequest;
 import edu.esipe.i3.ezipflix.dispatcher.ConversionResponse;
+import edu.esipe.i3.ezipflix.dispatcher.data.entities.ConversionStatus;
 import edu.esipe.i3.ezipflix.dispatcher.data.entities.VideoConversions;
 import edu.esipe.i3.ezipflix.dispatcher.data.entities.VideoFile;
 import edu.esipe.i3.ezipflix.dispatcher.data.repositories.VideoConversionRepository;
@@ -65,6 +66,14 @@ public class VideoConversion {
 
     public ArrayList<VideoConversions> getRunningConversions(){
         return conversions;
+    }
+
+    public void updateProgress(ConversionStatus status){
+        for (VideoConversions v : conversions) {
+            if(v.getUuid().equals(status.getUuid())){
+                v.setProgression(status.getPercentage());
+            }
+        }
     }
 
 }
