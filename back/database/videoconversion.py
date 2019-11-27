@@ -94,7 +94,6 @@ class VideoConversion(object):
 
         # Mise a jour du document dans la BD
         self.video_conversion_collection.update({'_id' : _id_}, { '$set' : {'originPath' : converted}})
-        #self.video_conversion_collection.update({'_id' : _id_}, { '$set' : {'tstamp' : time.time()  }})
         if os.path.exists(self.tmp_directory+converted):
             os.remove(self.tmp_directory+converted)
         if os.path.exists(self.tmp_directory+fileName):
