@@ -70,8 +70,8 @@ public class VideoConversion {
 
     public void updateProgress(ConversionStatus status){
         for (VideoConversions v : conversions) {
-            if(v.getUuid().equals(status.getUuid())){
-                v.setProgression(status.getPercentage());
+            if(v.getUuid().equals(status.getId())){
+                v.setProgression(status.getProgress());
             }
         }
     }
