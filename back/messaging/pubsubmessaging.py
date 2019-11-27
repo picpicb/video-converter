@@ -32,5 +32,5 @@ class PubSubMessaging(Thread):
             time.sleep(5)
 
     def on_message(self,task):
-        logging.info('id = %s, URI = %s', task["id"], task['originPath'])
+        logging.info('id = %s, URI = %s, FORMAT = %s', task["id"], task['originPath'],task["format"])
         self.converting_service.convert(task["id"], task['originPath'])

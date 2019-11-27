@@ -10,3 +10,4 @@ greenlet==0.4.15
 google-cloud-storage==1.23.0
 google-api-core==1.14.3
 google-cloud-pubsub==1.0.2
+pexpect==4.7.0
