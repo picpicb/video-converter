@@ -36,8 +36,8 @@ public class VideoStatusHandler extends TextWebSocketHandler {
         //{"progress": 6, "id": "1ed1f172-b209-45c2-8682-e6952a4a6625"}
         try {
             ObjectMapper mapper = new ObjectMapper();
-            ConversionStatus user = mapper.readValue(message.getPayload(), ConversionStatus.class);
-
+            ConversionStatus conversionStatus = mapper.readValue(message.getPayload(), ConversionStatus.class);
+            videoConversion.updateProgress(conversionStatus);
         } catch (IOException e) {
             e.printStackTrace();
         }
