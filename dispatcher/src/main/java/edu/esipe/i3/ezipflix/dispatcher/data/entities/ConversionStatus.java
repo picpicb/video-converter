@@ -1,27 +1,27 @@
 package edu.esipe.i3.ezipflix.dispatcher.data.entities;
 
 public class ConversionStatus {
-    private int percentage;
+    private int progress;
     private String id;
 
-    public ConversionStatus(int percentage, String uuid) {
-        this.percentage = percentage;
-        this.id = uuid;
+    public ConversionStatus(int progress, String id) {
+        this.progress = progress;
+        this.id = id;
     }
 
-    public int getPercentage() {
-        return percentage;
+    public int getProgress() {
+        return progress;
     }
 
-    public void setPercentage(int percentage) {
-        this.percentage = percentage;
+    public void setProgress(int progress) {
+        this.progress = progress;
     }
 
-    public String getUuid() {
+    public String getId() {
         return id;
     }
 
-    public void setUuid(String uuid) {
-        this.id = uuid;
+    public void setId(String id) {
+        this.id = id;
     }
 }
