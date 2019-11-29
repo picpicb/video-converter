@@ -32,6 +32,7 @@ import java.util.List;
 @RestController
 @EnableWebSocket
 @EnableSwagger2
+@CrossOrigin(origins = "*")
 @Api(tags = "Video")
 public class VideoDispatcher implements WebSocketConfigurer {
 
