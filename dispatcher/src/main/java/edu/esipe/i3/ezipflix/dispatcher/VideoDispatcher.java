@@ -1,7 +1,6 @@
 package edu.esipe.i3.ezipflix.dispatcher;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.google.cloud.storage.BlobId;
 import edu.esipe.i3.ezipflix.dispatcher.data.entities.VideoConversions;
 import edu.esipe.i3.ezipflix.dispatcher.data.entities.VideoFile;
 import edu.esipe.i3.ezipflix.dispatcher.data.services.VideoConversion;
@@ -64,12 +63,14 @@ public class VideoDispatcher implements WebSocketConfigurer {
         videoConversion.save(request, response);
         return response;
     }
+    // Envoie la liste des uri + infos de tous les fichiers du Google Storage
     @GetMapping(value = "/files",produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Get all stored files")
     public List<VideoFile> getAllFiles() {
         return videoConversion.getAllFiles();
     }
 
+    // Envoie l'historique des conversions
     @GetMapping(value = "/conversions",produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Get all conversions")
     public List<VideoConversions> getAllVideoConversions() {
@@ -83,6 +84,7 @@ public class VideoDispatcher implements WebSocketConfigurer {
         this.videoConversion.deleteBlobId(file);
     }
 
+    // Envoie les conversions en cours
     @GetMapping(value = "/running",produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Get all conversions")
     public ArrayList<VideoConversions> getRunningConversions() {

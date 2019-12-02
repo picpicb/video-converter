@@ -33,7 +33,8 @@ public class VideoStatusHandler extends TextWebSocketHandler {
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         LOGGER.info("Status = {}", message.getPayload());
-        //{"progress": 6, "id": "1ed1f172-b209-45c2-8682-e6952a4a6625"}
+
+        //Mise à jour du status des conversions en cours par le converter
         try {
             ObjectMapper mapper = new ObjectMapper();
             ConversionStatus conversionStatus = mapper.readValue(message.getPayload(), ConversionStatus.class);

@@ -16,3 +16,6 @@ spring :
       project-id: eco-groove-259413
       credentials:
         location : file:video-key.json
+
+pubsub-topic: conversion-queue
+bucket-uri: eco-groove-259413.appspot.com

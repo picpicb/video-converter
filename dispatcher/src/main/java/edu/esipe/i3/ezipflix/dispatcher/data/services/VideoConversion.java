@@ -43,7 +43,6 @@ public class VideoConversion {
         final VideoConversions conversion = new VideoConversions(response.getUuid().toString(), request.getPath().toString(), request.getFormat(),0);
         conversions.add(conversion);
         videoConversionRepository.save(conversion);
-        final Message message = new Message(conversion.toJson().getBytes(), new MessageProperties());
         this.pubSubTemplate.publish("conversion-queue", conversion.toJson());
     }
 

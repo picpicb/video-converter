@@ -50,7 +50,7 @@ class VideoConversion(object):
         cmd = ff.cmd
         thread = pexpect.spawn(cmd)
 
-
+        # Récupération du pourcentage
         while (not re.compile('^Press').match(line)):
             i = i + 1
             line = thread.readline().strip().decode('utf-8')
